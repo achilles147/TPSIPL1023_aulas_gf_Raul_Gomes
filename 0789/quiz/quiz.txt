@@ -1,0 +1,3 @@
+quiz.
+3 niveis de dificuldade - facil-mediano-dificil
+10 perguntas cada dificuldade
