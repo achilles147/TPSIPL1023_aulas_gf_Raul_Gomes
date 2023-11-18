@@ -1,4 +1,3 @@
-# Exercícios Python
+# TPSI PL 1023 - Raúl Gomes
+## Repositório de exercícios
 
-Exercícios Python
-https://www.wiki.python.org.br/ListaDeExercícios
