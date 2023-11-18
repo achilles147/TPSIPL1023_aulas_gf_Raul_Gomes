@@ -1,4 +1,4 @@
 # Exercícios Python
 
 Exercícios Python
-https://www.wiki.python.org.br/ListaDeExercícios
+https://www.wiki.python.org.br/ListaDeExercicios
