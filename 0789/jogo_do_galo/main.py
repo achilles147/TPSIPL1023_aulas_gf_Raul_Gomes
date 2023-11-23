@@ -29,6 +29,9 @@ def check_score():
             (jogo[1][0] == 'o' and jogo[1][1] == 'o' and jogo[1][2] == 'o')):
         board()
         endgame()
+        return 2
+    else:
+        return 1
 
 
 
@@ -75,7 +78,7 @@ jogadory = []
 print("\n" + "=" * 15 + "Jogo do Galo" + "=" * 15)
 turn = 0
 game = 1
-while True:
+while game == 1:
     board()
     if turn == 0:
         if turn == 0:
@@ -105,3 +108,9 @@ while True:
             jogaday = validacao_input("Coordenada Y: ")
         jogo[jogadax - 1][jogaday - 1] = 'o'
         turn = 0
+    game = check_score()
+
+
+
+
+
