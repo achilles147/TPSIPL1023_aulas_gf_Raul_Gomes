@@ -248,23 +248,145 @@ while True:
 
     if turn == 0:
         print("\nSão os X's a jogar")
-        jogadax = int(input("Coordenada x: "))
-        jogaday = int(input("Coordenada y: "))
+        while True:
+            try:
+                jogadax = int(input("Coordenada x: "))
+                break
+            except ValueError:
+                print("Tem que ser um número. Tenta denovo.")
+                continue
+        while jogadax > 3 or jogadax < 1:
+            print("Coordenada não encontrada.")
+            while True:
+                try:
+                    jogadax = int(input("Coordenada x: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
+        while True:
+            try:
+                jogaday = int(input("Coordenada y: "))
+                break
+            except ValueError:
+                print("Tem que ser um número. Tenta denovo.")
+                continue
+        while jogaday > 3 or jogaday < 1:
+            print("Coordenada não encontrada.")
+            while True:
+                try:
+                    jogaday = int(input("Coordenada y: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
         while jogo[jogadax-1][jogaday-1] == 'x' or jogo[jogadax-1][jogaday-1] == 'o':
             print("Coordenada ocupada. Tenta denovo.")
-            jogadax = int(input("Coordenada x: "))
-            jogaday = int(input("Coordenada y: "))
+            while True:
+                try:
+                    jogadax = int(input("Coordenada x: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
+            while jogadax > 3 or jogadax < 1:
+                print("Coordenada não encontrada.")
+                while True:
+                    try:
+                        jogadax = int(input("Coordenada x: "))
+                        break
+                    except ValueError:
+                        print("Tem que ser um número. Tenta denovo.")
+                        continue
+            while True:
+                try:
+                    jogaday = int(input("Coordenada y: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
+            while jogaday > 3 or jogaday < 1:
+                print("Coordenada não encontrada.")
+                while True:
+                    try:
+                        jogaday = int(input("Coordenada y: "))
+                        break
+                    except ValueError:
+                        print("Tem que ser um número. Tenta denovo.")
+                        continue
         jogo[jogadax-1][jogaday-1] = 'x'
+        print(jogo)
         turn = 1
     elif turn == 1:
         print("\nSão os O's a jogar")
-        jogadax = int(input("Coordenada x: "))
-        jogaday = int(input("Coordenada y: "))
+        while True:
+            try:
+                jogadax = int(input("Coordenada x: "))
+                break
+            except ValueError:
+                print("Tem que ser um número. Tenta denovo.")
+                continue
+        while jogadax > 3 or jogadax < 1:
+            print("Coordenada não encontrada.")
+            while True:
+                try:
+                    jogadax = int(input("Coordenada x: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
+        while True:
+            try:
+                jogaday = int(input("Coordenada y: "))
+                break
+            except ValueError:
+                print("Tem que ser um número. Tenta denovo.")
+                continue
+        while jogaday > 3 or jogaday < 1:
+            print("Coordenada não encontrada.")
+            while True:
+                try:
+                    jogaday = int(input("Coordenada y: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
         while jogo[jogadax-1][jogaday-1] == 'x' or jogo[jogadax-1][jogaday-1] == 'o':
             print("Coordenada ocupada. Tenta denovo.")
-            jogadax = int(input("Coordenada x: "))
-            jogaday = int(input("Coordenada y: "))
+            while True:
+                try:
+                    jogadax = int(input("Coordenada x: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
+            while jogadax > 3 or jogadax < 1:
+                print("Coordenada não encontrada.")
+                while True:
+                    try:
+                        jogadax = int(input("Coordenada x: "))
+                        break
+                    except ValueError:
+                        print("Tem que ser um número. Tenta denovo.")
+                        continue
+            while True:
+                try:
+                    jogaday = int(input("Coordenada y: "))
+                    break
+                except ValueError:
+                    print("Tem que ser um número. Tenta denovo.")
+                    continue
+            while jogaday > 3 or jogaday < 1:
+                print("Coordenada não encontrada.")
+                while True:
+                    try:
+                        jogaday = int(input("Coordenada y: "))
+                        break
+                    except ValueError:
+                        print("Tem que ser um número. Tenta denovo.")
+                        continue
         jogo[jogadax - 1][jogaday - 1] = 'o'
+        print(jogo)
         turn = 0
 
 
