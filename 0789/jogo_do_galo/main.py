@@ -1,6 +1,3 @@
-
-
-
 def reset():
     jogo[0][0] = '_'
     jogo[1][0] = '_'
@@ -13,383 +10,98 @@ def reset():
     jogo[2][2] = '_'
 
 
+def check_score():
+    if ((jogo[0][0] == 'x' and jogo[0][1] == 'x' and jogo[0][2] == 'x') or
+            (jogo[0][0] == 'x' and jogo[1][0] == 'x' and jogo[2][0] == 'x') or
+            (jogo[0][0] == 'x' and jogo[1][1] == 'x' and jogo[2][2] == 'x') or
+            (jogo[2][0] == 'x' and jogo[2][1] == 'x' and jogo[2][2] == 'x') or
+            (jogo[2][0] == 'x' and jogo[1][1] == 'x' and jogo[0][2] == 'x') or
+            (jogo[0][2] == 'x' and jogo[1][2] == 'x' and jogo[2][2] == 'x') or
+            (jogo[0][1] == 'x' and jogo[1][1] == 'x' and jogo[2][1] == 'x') or
+            (jogo[1][0] == 'x' and jogo[1][1] == 'x' and jogo[1][2] == 'x') or
+            (jogo[0][0] == 'o' and jogo[0][1] == 'o' and jogo[0][2] == 'o') or
+            (jogo[0][0] == 'o' and jogo[1][0] == 'o' and jogo[2][0] == 'o') or
+            (jogo[0][0] == 'o' and jogo[1][1] == 'o' and jogo[2][2] == 'o') or
+            (jogo[2][0] == 'o' and jogo[2][1] == 'o' and jogo[2][2] == 'o') or
+            (jogo[2][0] == 'o' and jogo[1][1] == 'o' and jogo[0][2] == 'o') or
+            (jogo[0][2] == 'o' and jogo[1][2] == 'o' and jogo[2][2] == 'o') or
+            (jogo[0][1] == 'o' and jogo[1][1] == 'o' and jogo[2][1] == 'o') or
+            (jogo[1][0] == 'o' and jogo[1][1] == 'o' and jogo[1][2] == 'o')):
+        board()
+        endgame()
+
+
+
+def endgame():
+    resp = input(f"Ganhou {user}! Queres jogar denovo (s/n)? ")
+    while resp != "s" and resp != "n":
+        print("Erro. ")
+        resp = input(f"Ganhou {user}! Queres jogar denovo (s/n)? ")
+    if resp == 's':
+        reset()
+    elif resp == 'n':
+        print("Até à proxima!")
+        return 2
+
+
+def validacao_input(var):
+    while True:
+        try:
+            user_input = int(input(var))
+            if user_input > 3 or user_input < 1:
+                print("Coordenada não encontrada. Tenta denovo.")
+                continue
+            return user_input
+        except ValueError:
+            print("Erro. Tenta denovo.")
+
 jogo = [['_', '_', '_'],
         ['_', '_', '_'],
         ['_', '_', '_']]
+def board():
+    print(f"""
 
-print("\n"+"="*15+"Jogo do Galo"+"="*15)
+           1   2   3    x
+        1  {jogo[0][0]}   {jogo[1][0]}   {jogo[2][0]}
+        2  {jogo[0][1]}   {jogo[1][1]}   {jogo[2][1]}
+        3  {jogo[0][2]}   {jogo[1][2]}   {jogo[2][2]}
 
-turn = 0
+        y
+        """)
+
 jogadorx = []
 jogadory = []
 
+print("\n" + "=" * 15 + "Jogo do Galo" + "=" * 15)
+turn = 0
+game = 1
 while True:
-    print(f"""
-    
-       1   2   3    x
-    1  {jogo[0][0]}   {jogo[1][0]}   {jogo[2][0]}
-    2  {jogo[0][1]}   {jogo[1][1]}   {jogo[2][1]}
-    3  {jogo[0][2]}   {jogo[1][2]}   {jogo[2][2]}
-    
-    y
-    """)
-
-    if jogo[0][0] == 'x':
-        if jogo[0][1] == 'x':
-            if jogo[0][2] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != "s" and resp != "n":
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-        elif jogo[1][0] == 'x':
-            if jogo[2][0] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-        elif jogo[1][1] == 'x':
-            if jogo[2][2] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[2][0] == 'x':
-        if jogo[2][1] == 'x':
-            if jogo[2][2] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-        if jogo[1][1] == 'x':
-            if jogo[0][2] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[0][2] == 'x':
-        if jogo[1][2] == 'x':
-            if jogo[2][2] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                    while resp != 's' and resp != 'n':
-                        print("Erro. ")
-                        resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                    if resp == 's':
-                        reset()
-                        continue
-                    elif resp == 'n':
-                        print("Até à proxima!")
-                        break
-    elif jogo[0][1] == 'x':
-        if jogo[1][1] == 'x':
-            if jogo[2][1] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[1][0] == 'x':
-        if jogo[1][1] == 'x':
-            if jogo[1][2] == 'x':
-                resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-
-    if jogo[0][0] == 'o':
-        if jogo[0][1] == 'o':
-            if jogo[0][2] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-        elif jogo[1][0] == 'o':
-            if jogo[2][0] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-        elif jogo[1][1] == 'o':
-            if jogo[2][2] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[2][0] == 'o':
-        if jogo[2][1] == 'o':
-            if jogo[2][2] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != "s" and resp != "n":
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-        if jogo[1][1] == 'o':
-            if jogo[0][2] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[0][2] == 'o':
-        if jogo[1][2] == 'o':
-            if jogo[2][2] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[0][1] == 'o':
-        if jogo[1][1] == 'o':
-            if jogo[2][1] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-    elif jogo[1][0] == 'o':
-        if jogo[1][1] == 'o':
-            if jogo[1][2] == 'o':
-                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                while resp != 's' and resp != 'n':
-                    print("Erro. ")
-                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
-                if resp == 's':
-                    reset()
-                    continue
-                elif resp == 'n':
-                    print("Até à proxima!")
-                    break
-
+    board()
     if turn == 0:
-        print("\nSão os X's a jogar")
-        while True:
-            try:
-                jogadax = int(input("Coordenada x: "))
-                break
-            except ValueError:
-                print("Tem que ser um número. Tenta denovo.")
-                continue
-        while jogadax > 3 or jogadax < 1:
-            print("Coordenada não encontrada.")
-            while True:
-                try:
-                    jogadax = int(input("Coordenada x: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-        while True:
-            try:
-                jogaday = int(input("Coordenada y: "))
-                break
-            except ValueError:
-                print("Tem que ser um número. Tenta denovo.")
-                continue
-        while jogaday > 3 or jogaday < 1:
-            print("Coordenada não encontrada.")
-            while True:
-                try:
-                    jogaday = int(input("Coordenada y: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-        while jogo[jogadax-1][jogaday-1] == 'x' or jogo[jogadax-1][jogaday-1] == 'o':
+        if turn == 0:
+            user = 'X'
+        else:
+            user = 'O'
+        print(f"\nSão os {user}'s a jogar")
+        jogadax = validacao_input("Coordenada X: ")
+        jogaday = validacao_input("Coordenada Y: ")
+        while jogo[jogadax - 1][jogaday - 1] == 'x' or jogo[jogadax - 1][jogaday - 1] == 'o':
             print("Coordenada ocupada. Tenta denovo.")
-            while True:
-                try:
-                    jogadax = int(input("Coordenada x: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-            while jogadax > 3 or jogadax < 1:
-                print("Coordenada não encontrada.")
-                while True:
-                    try:
-                        jogadax = int(input("Coordenada x: "))
-                        break
-                    except ValueError:
-                        print("Tem que ser um número. Tenta denovo.")
-                        continue
-            while True:
-                try:
-                    jogaday = int(input("Coordenada y: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-            while jogaday > 3 or jogaday < 1:
-                print("Coordenada não encontrada.")
-                while True:
-                    try:
-                        jogaday = int(input("Coordenada y: "))
-                        break
-                    except ValueError:
-                        print("Tem que ser um número. Tenta denovo.")
-                        continue
-        jogo[jogadax-1][jogaday-1] = 'x'
+            jogadax = validacao_input("Coordenada X: ")
+            jogaday = validacao_input("Coordenada Y: ")
+        jogo[jogadax - 1][jogaday - 1] = 'x'
         turn = 1
     elif turn == 1:
-        print("\nSão os O's a jogar")
-        while True:
-            try:
-                jogadax = int(input("Coordenada x: "))
-                break
-            except ValueError:
-                print("Tem que ser um número. Tenta denovo.")
-                continue
-        while jogadax > 3 or jogadax < 1:
-            print("Coordenada não encontrada.")
-            while True:
-                try:
-                    jogadax = int(input("Coordenada x: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-        while True:
-            try:
-                jogaday = int(input("Coordenada y: "))
-                break
-            except ValueError:
-                print("Tem que ser um número. Tenta denovo.")
-                continue
-        while jogaday > 3 or jogaday < 1:
-            print("Coordenada não encontrada.")
-            while True:
-                try:
-                    jogaday = int(input("Coordenada y: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-        while jogo[jogadax-1][jogaday-1] == 'x' or jogo[jogadax-1][jogaday-1] == 'o':
+        if turn == 0:
+            user = 'X'
+        else:
+            user = 'O'
+        print(f"\nSão os {user}'s a jogar")
+        jogadax = validacao_input("Coordenada X: ")
+        jogaday = validacao_input("Coordenada Y: ")
+        while jogo[jogadax - 1][jogaday - 1] == 'x' or jogo[jogadax - 1][jogaday - 1] == 'o':
             print("Coordenada ocupada. Tenta denovo.")
-            while True:
-                try:
-                    jogadax = int(input("Coordenada x: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-            while jogadax > 3 or jogadax < 1:
-                print("Coordenada não encontrada.")
-                while True:
-                    try:
-                        jogadax = int(input("Coordenada x: "))
-                        break
-                    except ValueError:
-                        print("Tem que ser um número. Tenta denovo.")
-                        continue
-            while True:
-                try:
-                    jogaday = int(input("Coordenada y: "))
-                    break
-                except ValueError:
-                    print("Tem que ser um número. Tenta denovo.")
-                    continue
-            while jogaday > 3 or jogaday < 1:
-                print("Coordenada não encontrada.")
-                while True:
-                    try:
-                        jogaday = int(input("Coordenada y: "))
-                        break
-                    except ValueError:
-                        print("Tem que ser um número. Tenta denovo.")
-                        continue
+            jogadax = validacao_input("Coordenada X: ")
+            jogaday = validacao_input("Coordenada Y: ")
         jogo[jogadax - 1][jogaday - 1] = 'o'
         turn = 0
-
-
-
-
-
-
-
