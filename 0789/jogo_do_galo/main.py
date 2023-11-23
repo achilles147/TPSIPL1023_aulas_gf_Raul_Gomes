@@ -147,7 +147,7 @@ while True:
     if jogo[0][0] == 'o':
         if jogo[0][1] == 'o':
             if jogo[0][2] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
                     resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
@@ -159,10 +159,10 @@ while True:
                     break
         elif jogo[1][0] == 'o':
             if jogo[2][0] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
@@ -171,10 +171,10 @@ while True:
                     break
         elif jogo[1][1] == 'o':
             if jogo[2][2] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
@@ -184,10 +184,10 @@ while True:
     elif jogo[2][0] == 'o':
         if jogo[2][1] == 'o':
             if jogo[2][2] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != "s" and resp != "n":
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
@@ -196,10 +196,10 @@ while True:
                     break
         if jogo[1][1] == 'o':
             if jogo[0][2] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
@@ -209,10 +209,10 @@ while True:
     elif jogo[0][2] == 'o':
         if jogo[1][2] == 'o':
             if jogo[2][2] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
@@ -222,10 +222,10 @@ while True:
     elif jogo[0][1] == 'o':
         if jogo[1][1] == 'o':
             if jogo[2][1] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
@@ -235,10 +235,10 @@ while True:
     elif jogo[1][0] == 'o':
         if jogo[1][1] == 'o':
             if jogo[1][2] == 'o':
-                resp = input("Ganhou Y! Queres jogar denovo (s/n)? ")
+                resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 while resp != 's' and resp != 'n':
                     print("Erro. ")
-                    resp = input("Ganhou X! Queres jogar denovo (s/n)? ")
+                    resp = input("Ganhou O! Queres jogar denovo (s/n)? ")
                 if resp == 's':
                     reset()
                     continue
