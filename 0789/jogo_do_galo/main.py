@@ -315,7 +315,6 @@ while True:
                         print("Tem que ser um número. Tenta denovo.")
                         continue
         jogo[jogadax-1][jogaday-1] = 'x'
-        print(jogo)
         turn = 1
     elif turn == 1:
         print("\nSão os O's a jogar")
@@ -386,7 +385,6 @@ while True:
                         print("Tem que ser um número. Tenta denovo.")
                         continue
         jogo[jogadax - 1][jogaday - 1] = 'o'
-        print(jogo)
         turn = 0
 
 
