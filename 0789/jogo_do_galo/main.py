@@ -28,11 +28,9 @@ def check_score():
             (jogo[0][1] == 'o' and jogo[1][1] == 'o' and jogo[2][1] == 'o') or
             (jogo[1][0] == 'o' and jogo[1][1] == 'o' and jogo[1][2] == 'o')):
         board()
-        endgame()
-        return 2
+        return endgame()
     else:
         return 1
-
 
 
 def endgame():
@@ -42,6 +40,7 @@ def endgame():
         resp = input(f"Ganhou {user}! Queres jogar denovo (s/n)? ")
     if resp == 's':
         reset()
+        return 1
     elif resp == 'n':
         print("Até à proxima!")
         return 2
@@ -61,16 +60,19 @@ def validacao_input(var):
 jogo = [['_', '_', '_'],
         ['_', '_', '_'],
         ['_', '_', '_']]
+
+
 def board():
     print(f"""
-
+    {"-"*26+"\n"}
            1   2   3    x
         1  {jogo[0][0]}   {jogo[1][0]}   {jogo[2][0]}
         2  {jogo[0][1]}   {jogo[1][1]}   {jogo[2][1]}
         3  {jogo[0][2]}   {jogo[1][2]}   {jogo[2][2]}
-
+        
         y
         """)
+
 
 jogadorx = []
 jogadory = []
@@ -109,8 +111,3 @@ while game == 1:
         jogo[jogadax - 1][jogaday - 1] = 'o'
         turn = 0
     game = check_score()
-
-
-
-
-
