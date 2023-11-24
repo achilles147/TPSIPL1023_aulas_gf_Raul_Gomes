@@ -47,12 +47,34 @@ Total gasto com abonos: R$ 1400.00
 Valor mínimo pago a 3 colaboradores
 Maior valor de abono pago: R$ 900.00
 """
+
+def tabela():
+    soma = 0
+    print(f"\nSalário" + " " * 5 + "- Abono")
+    for i in range(len(salarios)):
+        print(f"R$ {salarios[i]:.2f}\t-\tR$ {abonos[i]:.2f}")
+        soma += abonos[i]
+    print(f"\nForam processados {len(salarios)} colaboradores.")
+    print(f"Total gasto com abonos: {soma}")
+    print(f"Valor mínimo pago a {count} funcionários.")
+    print(f"Maior valor de abono pago: {max(abonos)}")
+
+
+
 salarios = []
 abonos = []
-print("Projeção de Gastos com Abono\n"+"="*28+"\n")
+count = 0
+print("Projeção de Gastos com Abono\n" + "=" * 28 + "\n")
 while True:
     sal = float(input("Salario: "))
     if sal == 0:
         break
-    salarios.append(sal)
-print("\nSalário"+" "*5+"- Abono")
+    else:
+        salarios.append(sal)
+        abono = sal * 0.20
+        if abono < 101:
+            abono = 100
+            count += 1
+    abonos.append(abono)
+tabela()
+
