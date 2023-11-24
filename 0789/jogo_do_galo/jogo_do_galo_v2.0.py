@@ -32,21 +32,25 @@ def reset(): #reset aos valores da board
 
 def checkscore(board, jogadores): #verificar se há combinação vencedora
     for i in range(len(board)):
-        if all(cell == jogadores for cell in board[i]) or all(board[j][i] == jogadores for j in range(len(board))):
-            #all() retorna True caso os parametros sejam True
-            #primeio all() verifica cada linha da board, segundo all() verifica cada coluna
-            #cell itera sobre os valores de jogadores['X' ou 'O'] -> ex.: se
+        if all(cell == jogadores for cell in board[i]) or all(board[j][i] == jogadores for j in range(len(board))): # verifica verticalidade e horizontalidade
+            #all() retorna True caso todos os parametros sejam True
+            #primeio all() verifica(horizontalidade) cada linha da board (caso board[qualquer linha completa com X ou O] retorna True
+            #segundo all() verifica(verticalidade) cada coluna da board (itera sobre a posição j de cada linha, verificando verticalidade)
+            #cell == jogadores itera sobre os valores de jogadores['X' ou 'O']
             return True
-    if all(board[i][i] == jogadores for i in range(len(board))) or all(board[i][len(board) - 1 - i] == jogadores for i in range(len(board))):
+    if all(board[i][i] == jogadores for i in range(len(board))) or all(board[i][len(board) - 1 - i] == jogadores for i in range(len(board))): #verifica a diagonal primária e secundária
+        #board[i][i] verifica a diagonal primária > top left para bottom right
+        #board[i][len(board) - 1 - i] verifica diagonal secundária > bottom left para top right > ex 3x3 board[0][(3 - 1 - 0) = 2]
         return True
     return False
 
 board = []
 jogadores = ['X','O']
+jogador = 0
 ronda = 1
 roundc = 0
 makeboard()
-jogador = 0
+
 print(f"""
 {"="*5+"Jogo do Galo"+"="*5}
     """)
@@ -76,4 +80,3 @@ while True:
         roundc = 0
     else:
         roundc += 1
-    print(board)
