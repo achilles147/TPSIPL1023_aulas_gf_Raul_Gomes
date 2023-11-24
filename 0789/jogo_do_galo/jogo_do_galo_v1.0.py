@@ -1,13 +1,7 @@
 def reset():
-    jogo[0][0] = '_'
-    jogo[1][0] = '_'
-    jogo[2][0] = '_'
-    jogo[0][1] = '_'
-    jogo[1][1] = '_'
-    jogo[2][1] = '_'
-    jogo[0][2] = '_'
-    jogo[1][2] = '_'
-    jogo[2][2] = '_'
+    for i in range(3):
+        for j in range(3):
+            jogo[i][j] = '_'
 
 
 def check_score():
