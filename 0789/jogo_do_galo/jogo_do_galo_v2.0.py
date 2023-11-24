@@ -1,4 +1,3 @@
-#criar board n-elementos
 
 def makeboard():
     n_board = int(input("N-elementos: "))
@@ -13,36 +12,41 @@ def showboard():
             print(board[i][j], end="\t\t")
         print("\n")
 
-def checkscore(board):
-    for linha in board:
-        if all(value == linha[0] for value in linha):
+def validacao_input(var):
+    while True:
+        try:
+            user_input = int(input(var))
+            if user_input > len(board) or user_input < 1:
+                print("Coordenada não encontrada. Tenta denovo.")
+                continue
+            return user_input
+        except ValueError:
+            print("Erro. Tenta denovo.")
+
+def checkscore(board, jogadores):
+    for i in range(len(board)):
+        if all(cell == jogadores for cell in board[i]) or all(board[j][i] == jogadores for j in range(len(board))):
             return True
-
-
-
+    if all(board[i][i] == jogadores for i in range(len(board))) or all(board[i][len(board) - 1 - i] == jogadores for i in range(len(board))):
+        return True
+    return False
 
 board = []
+jogadores = ['X','O']
 turn = 0
 makeboard()
+jogador = 0
 print(f"""
 {"="*5+"Jogo do Galo"+"="*5}
     """)
 while True:
     showboard()
-    if turn == 0:
-        print("Jogador X")
-        jogadax = int(input("Coordenada x: "))
-        jogaday = int(input("Coordenada Y: "))
-        board[jogaday-1][jogadax-1] = 'X'
-        turn = 1
-    elif turn == 1:
-        print("Jogador Y")
-        jogadax = int(input("Coordenada x: "))
-        jogaday = int(input("Coordenada Y: "))
-        board[jogaday - 1][jogadax - 1] = 'Y'
-        turn = 0
-    if checkscore(board):
-        print("Linha!")
-    else:
-        print("perdeu playboi")
-    print(board)
+    print(f"Jogador {jogadores[jogador]}")
+    jogadax = validacao_input("Coordenada X: ")
+    jogaday = validacao_input("Coordenada Y: ")
+    board[jogaday-1][jogadax-1] = jogadores[jogador]
+    if checkscore(board, jogadores[jogador]):
+        showboard()
+        print(f"Jogador {jogadores[jogador]} ganhou!")
+        break
+    jogador = (jogador + 1) % 2
