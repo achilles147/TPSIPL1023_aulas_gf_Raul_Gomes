@@ -66,10 +66,10 @@ while True:
     if checkscore(board, jogadores[jogador]):
         showboard()
         resp = input(f"Jogador {jogadores[jogador]} ganhou!\n Repetir (s/n)? ")
-        while resp != 's' or resp != 'n':
+        while resp != 's' and resp != 'n':
             resp = input("Erro. Tenta denovo.\n Repetir (s/n)? ")
         if resp == 'n':
-            print("\nObrigado por jogares")
+            print("\nObrigado por jogares!")
             break
         else:
             reset()
