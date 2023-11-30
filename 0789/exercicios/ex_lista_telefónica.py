@@ -27,7 +27,6 @@ def novo_contacto():
         except:
             print("Erro.")
     relacao = input("Relação com contacto: ")
-    relacao = relacao.capitalize()
     relacao = Relacao(relacao)
     contacto = Contacto(nome,num, relacao)
     lista_contactos.append(contacto)
@@ -74,4 +73,4 @@ while True:
             printlista()
         case '4':
             break
-
+print(lista_contactos)
