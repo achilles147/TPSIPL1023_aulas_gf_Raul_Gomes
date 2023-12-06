@@ -13,19 +13,27 @@ Inclua um loop que permita que o usuário repita esse cálculo para novos valore
 """
 
 def conversao(a,b):
-    time.lower()
-    if time == 'p':
+    if a > 12 and a < 24:
         a -= 12
-    print(f'{a}:{b}')
+        time = 'PM'
+    elif a < 12 and a > 0:
+        time = 'AM'
+    elif a == 24:
+        a = 12
+        time = 'AM'
+    elif a == 12:
+        time = 'PM'
+    elif a == 0:
+        a = 12
+        time = 'AM'
+    print(f'{a}:{b} {time}')
 
-def conversao2412(a,b):
-
-
-
-
-time = input("A. AM\nP. PM\nOpção:")
-conversao(15,25)
-
-
-
+horas = 1
+while horas != 25:
+    horas = int(input("Horas: "))
+    if horas == 25:
+        break
+    minutos = int(input("Minutos: "))
+    conversao(horas, minutos)
+print("fim")
 
