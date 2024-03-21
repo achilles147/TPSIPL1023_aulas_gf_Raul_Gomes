@@ -1,0 +1,6 @@
+C:\git_feliciano\TPSIPL1023_aulas_gf_Raul_Gomes\5089 - Algoritmia\Recursividade\Recursividade\bin\Debug\Recursividade.exe
+C:\git_feliciano\TPSIPL1023_aulas_gf_Raul_Gomes\5089 - Algoritmia\Recursividade\Recursividade\bin\Debug\Recursividade.pdb
+C:\git_feliciano\TPSIPL1023_aulas_gf_Raul_Gomes\5089 - Algoritmia\Recursividade\Recursividade\obj\Debug\Recursividade.csproj.AssemblyReference.cache
+C:\git_feliciano\TPSIPL1023_aulas_gf_Raul_Gomes\5089 - Algoritmia\Recursividade\Recursividade\obj\Debug\Recursividade.csproj.CoreCompileInputs.cache
+C:\git_feliciano\TPSIPL1023_aulas_gf_Raul_Gomes\5089 - Algoritmia\Recursividade\Recursividade\obj\Debug\Recursividade.exe
+C:\git_feliciano\TPSIPL1023_aulas_gf_Raul_Gomes\5089 - Algoritmia\Recursividade\Recursividade\obj\Debug\Recursividade.pdb
