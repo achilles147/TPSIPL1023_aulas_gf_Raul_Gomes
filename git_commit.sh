@@ -13,3 +13,7 @@ git add .
 git commit -m "$1"
 
 echo "Changes committed successfully."
+
+git push
+
+echo "Changes pushed successfully."
